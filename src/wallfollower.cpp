@@ -8,7 +8,7 @@ ros::Publisher pub ;
 
 void callback(const sensor_msgs::LaserScan::ConstPtr& msg)
 {
-    char state ;
+   char state ;
    int total_points = msg->ranges.size();
    std::vector<float> data = msg->ranges;
 
