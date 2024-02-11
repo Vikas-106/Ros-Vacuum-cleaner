@@ -1,0 +1,8 @@
+<launch>
+<node pkg = "vacuum_cleaner" name = "pathpublisher" type="pathpublisher" output="screen"/>
+  <arg name="static_tf" default="true" />
+  <node if="$(arg static_tf)" pkg="tf2_ros" type="static_transform_publisher" name="odom_wrt_map_tf" args="0 0 0 0 0 0 map odom" />
+    <arg name="rvizconfig" default="$(find go_to_goal_turtlesim)/src/rviz.rviz"/>
+  <node name="rviz" pkg="rviz" type="rviz" respawn="false" args="-d $(arg rvizconfig)"/>
+
+</launch>
